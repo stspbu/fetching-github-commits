@@ -118,7 +118,7 @@ class GithubAPI:
         commits = result[:limit]
         commits = list(filter(lambda c: len(c.get('parents', [])) <= 1, commits))
 
-        if len(commits) < limit:
+        if len(commits) < limit and result:
             commits += self.get_commits(user_name, repo_name, limit-len(commits), page=page+1)
 
         return commits
