@@ -36,7 +36,7 @@ class PatchStorager(Storager):
 
                 file_path = os.path.join(dir_path, f'{index+1}.txt')
                 with open(file_path, 'a+') as f:
-                    f.write(f'{item.sha} {item.file_name}\n\n')
+                    f.write(f'File name: {item.file_name}\n\n')
                     for patch in item.patches:
                         f.write(patch)
                         f.write('\n\n')
@@ -77,4 +77,4 @@ class StatStorager(Storager):
 
             file_arr = sorted(files, key=lambda f: len(f.patches), reverse=True)
             for file in file_arr:
-                f.write(f'{file.sha} {file.file_name} changed {len(file.patches)} times\n')
+                f.write(f'{file.file_name} changed {len(file.patches)} times\n')

@@ -11,7 +11,7 @@ class GithubManager:
     __UNAUTHORIZED_AUTHOR_ID_PREFIX = '__unauthorized__'
 
     _author_id_to_author = {}
-    _file_sha_name_to_file = {}
+    _file_name_to_file = {}
     _commits = []
 
     def __init__(self):
@@ -23,7 +23,7 @@ class GithubManager:
 
     @classmethod
     def get_files(cls):
-        return cls._file_sha_name_to_file.values()
+        return cls._file_name_to_file.values()
 
     @staticmethod
     def _show_progress(count, total, suffix=''):
@@ -80,12 +80,10 @@ class GithubManager:
                     if not row_file.get('patch'):
                         continue  # we are interested only in changed files, not fully added
 
-                    file_sha_name = f'{row_file["sha"]}.{row_file["filename"]}'
-
-                    file = self._file_sha_name_to_file.get(file_sha_name)
+                    file = self._file_name_to_file.get(row_file['filename'])
                     if not file:
                         file = File(row_file['sha'], row_file['filename'], row_file['changes'])
-                        self._file_sha_name_to_file[file_sha_name] = file
+                        self._file_name_to_file[row_file['filename']] = file
 
                     file.patches.append(row_file['patch'])
                     files.append(file)
