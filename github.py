@@ -82,13 +82,13 @@ class GithubManager:
 
                     file = self._file_name_to_file.get(row_file['filename'])
                     if not file:
-                        file = File(row_file['sha'], row_file['filename'], row_file['changes'])
+                        file = File(row_file['sha'], row_file['filename'])
                         self._file_name_to_file[row_file['filename']] = file
 
                     file.patches.append(row_file['patch'])
                     files.append(file)
 
-                    curr_changes_cnt += file.changes_cnt
+                    curr_changes_cnt += row_file['changes']
 
             sha = row_commit['sha']
             commit = Commit(sha, author, files)

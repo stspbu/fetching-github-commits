@@ -15,8 +15,7 @@ class Author:
 
 
 class File:
-    def __init__(self, sha, file_name, changes_cnt, patches=None):
+    def __init__(self, sha, file_name, patches=None):
         self.sha = sha
         self.file_name = file_name
-        self.changes_cnt = changes_cnt
         self.patches = patches or []
