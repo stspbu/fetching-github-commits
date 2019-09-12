@@ -29,7 +29,7 @@ authorizedonly -- if set to 1, only authorized commit authors will be shown in s
 
 ## Project structure
 *commands* folder contains modules for handling terminal commands<br>
-*github* contains main classes for getting data from Github
+*github* contains main classes for getting data from Github<br>
 *main.py* running the program and handles exceptions<br>
 *models* contains project models<br>
 *settings* loads settings.json, provides methods for getting settings and writing them into settings.json
