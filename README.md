@@ -13,13 +13,19 @@ Basic usage:<br>
 *python3 main.py fetch https://github.com/stspbu/fetching-github-commits*
 
 Advanced usage:<br>
-*python3 main.py settings set \[key:value\]* for change settings<br> 
-*python3 main.py settings get* shows all available settings and their values<br>
-*python3 main.py settings list* gives available settings list<br>
+*python3 main.py settings set \[key:value\]* -- for change settings<br> 
+*python3 main.py settings get* -- shows all available settings and their values<br>
+*python3 main.py settings list* -- gives available settings list<br>
 
 You can see all available commands in any time in your terminal. For that, type: <br>
 *python3 main.py help*<br>
 *python3 main.py settings help*
+
+Available settings:<br>
+folder -- folder, storing commit patches (default: files)<br>
+token -- oauth token for github api, if requests limit exceeded<br>
+statfile -- a file name, where last query statistics will be stored (default: stat)<br>
+authorizedonly -- if set to 1, only authorized commit authors will be shown in stats (default: 0)<br>
 
 ## Project structure
 *commands* folder contains modules for handling terminal commands<br>
